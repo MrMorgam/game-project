@@ -15,11 +15,6 @@ script = ExtResource("1_i43lb")
 [node name="Player" parent="." instance=ExtResource("2_wt6p1")]
 position = Vector2(592, 336)
 
-[node name="Main_menu" type="Button" parent="."]
-offset_right = 96.0
-offset_bottom = 40.0
-text = "Main Menu"
-
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
@@ -37,5 +32,10 @@ shape = SubResource("RectangleShape2D_ynv0j")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(1164, 324)
 shape = SubResource("RectangleShape2D_ynv0j")
+
+[node name="Main_menu" type="Button" parent="."]
+offset_right = 96.0
+offset_bottom = 40.0
+text = "Main Menu"
 
 [connection signal="pressed" from="Main_menu" to="." method="_on_main_menu_pressed"]
