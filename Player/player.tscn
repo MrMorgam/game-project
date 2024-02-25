@@ -3,10 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://buog54h6pq28h" path="res://Player/icon.svg" id="1_kvo6v"]
 [ext_resource type="Script" path="res://Player/player.gd" id="1_p5uoq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwru7"]
-radius = 64.0
-height = 128.0
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_fcrhe"]
 animations = [{
 "frames": [{
@@ -18,11 +14,32 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwru7"]
+radius = 64.0
+height = 128.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_p5uoq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Animated_sprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.6226e-06, 2.6226e-06)
+scale = Vector2(1, 1)
+sprite_frames = SubResource("SpriteFrames_fcrhe")
+
+[node name="Collision_shape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_jwru7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_fcrhe")
+[node name="Camera" type="Camera2D" parent="."]
+
+[node name="Back_to_main_menu" type="Button" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 408.0
+offset_top = -320.0
+offset_right = 568.0
+offset_bottom = -288.0
+grow_horizontal = 0
+text = "Back to Main Menu"
+
+[connection signal="pressed" from="Back_to_main_menu" to="." method="_on_button_pressed"]

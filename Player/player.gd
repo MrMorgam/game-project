@@ -18,3 +18,7 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0 , SPEED)
 
 	move_and_slide()
+
+
+func _on_button_pressed():
+	get_tree().change_scene_to_file("res://Main Menu/main_menu.tscn")
