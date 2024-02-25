@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbxldi1hc7h5b"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_i43lb"]
+[ext_resource type="PackedScene" uid="uid://bhn3428lpng3v" path="res://player.tscn" id="2_wt6p1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_js6ej"]
+size = Vector2(1152, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cy4ne"]
+size = Vector2(24, 648)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_i43lb")
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2(576, 660)
+shape = SubResource("RectangleShape2D_js6ej")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2(576, -11.875)
+shape = SubResource("RectangleShape2D_js6ej")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2(-12, 324)
+shape = SubResource("RectangleShape2D_cy4ne")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2(1164, 324)
+shape = SubResource("RectangleShape2D_cy4ne")
+
+[node name="Player" parent="." instance=ExtResource("2_wt6p1")]
+position = Vector2(608, 304)
+
+[node name="Main_menu" type="Button" parent="."]
+offset_right = 96.0
+offset_bottom = 40.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Main_menu" to="." method="_on_main_menu_pressed"]
