@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvnp3kyht48r5"]
+
+[ext_resource type="Script" path="res://settings_menu.gd" id="1_dio6l"]
+
+[node name="Settings_menu" type="Node2D"]
+script = ExtResource("1_dio6l")
+
+[node name="Placeholder" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 168.0
+offset_right = 680.0
+offset_bottom = 224.0
+tooltip_text = "It does nothing, just a placeholder button"
+text = "Placeholder button ;)"
+
+[node name="Placeholder2" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 272.0
+offset_right = 680.0
+offset_bottom = 328.0
+tooltip_text = "It does nothing, just a placeholder button"
+text = "Placeholder button ;)"
+
+[node name="Placeholder3" type="Button" parent="."]
+offset_left = 456.0
+offset_top = 376.0
+offset_right = 680.0
+offset_bottom = 432.0
+tooltip_text = "It does nothing, just a placeholder button ;)"
+text = "Placeholder button ;)"
+
+[node name="Back" type="Button" parent="."]
+offset_left = 488.0
+offset_top = 488.0
+offset_right = 640.0
+offset_bottom = 544.0
+text = "Back"
+
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]

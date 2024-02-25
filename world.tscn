@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0qmctw8d530n"]
+
+[ext_resource type="Texture2D" uid="uid://buog54h6pq28h" path="res://icon.svg" id="1_b0nc0"]
+[ext_resource type="Script" path="res://world.gd" id="1_i43lb"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwrmw"]
+radius = 64.0
+height = 128.0
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_i43lb")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(592, 312)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("CapsuleShape2D_xwrmw")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = ExtResource("1_b0nc0")
+
+[node name="Main_menu" type="Button" parent="."]
+offset_right = 96.0
+offset_bottom = 40.0
+text = "Main Menu"
+
+[connection signal="pressed" from="Main_menu" to="." method="_on_main_menu_pressed"]
