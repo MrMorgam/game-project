@@ -1,27 +1,41 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0qmctw8d530n"]
+[gd_scene load_steps=5 format=3 uid="uid://cbxldi1hc7h5b"]
 
-[ext_resource type="Texture2D" uid="uid://buog54h6pq28h" path="res://icon.svg" id="1_b0nc0"]
 [ext_resource type="Script" path="res://world.gd" id="1_i43lb"]
+[ext_resource type="PackedScene" uid="uid://dix1xtm4phy8y" path="res://player.tscn" id="2_wt6p1"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xwrmw"]
-radius = 64.0
-height = 128.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sjvsn"]
+size = Vector2(1152, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ynv0j"]
+size = Vector2(24, 648)
 
 [node name="World" type="Node2D"]
 script = ExtResource("1_i43lb")
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
-position = Vector2(592, 312)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_xwrmw")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-texture = ExtResource("1_b0nc0")
+[node name="Player" parent="." instance=ExtResource("2_wt6p1")]
+position = Vector2(592, 336)
 
 [node name="Main_menu" type="Button" parent="."]
 offset_right = 96.0
 offset_bottom = 40.0
 text = "Main Menu"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, -12)
+shape = SubResource("RectangleShape2D_sjvsn")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(576, 660)
+shape = SubResource("RectangleShape2D_sjvsn")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12, 324)
+shape = SubResource("RectangleShape2D_ynv0j")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1164, 324)
+shape = SubResource("RectangleShape2D_ynv0j")
 
 [connection signal="pressed" from="Main_menu" to="." method="_on_main_menu_pressed"]
